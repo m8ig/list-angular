@@ -20,5 +20,32 @@ describe('List Application', () => {
       query.sendKeys('motorola');
       expect(list.count()).toBe(2);
     });
+
+    it('should be possible to control phone order via the drop-down menu', () => {
+      const query = element(by.model('$ctrl.query'));
+      const order = element(by.model('$ctrl.orderProp'));
+      const name = order.element(by.css('option[value="name"]'));
+      const nameColumn = element.all(by.repeater('phone in $ctrl.phones').column('phone.name'));
+
+      function getNames() {
+        return nameColumn.map((elem) => {
+          return elem.getText();
+        });
+      }
+
+      query.sendKeys('tablet');
+
+      expect(getNames()).toEqual([
+        'Motorola XOOM\u2122 with Wi-Fi',
+        'MOTOROLA XOOM\u2122',
+      ]);
+
+      name.click();
+
+      expect(getNames()).toEqual([
+        'MOTOROLA XOOM\u2122',
+        'Motorola XOOM\u2122 with Wi-Fi',
+      ]);
+    });
   });
 });

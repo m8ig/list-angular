@@ -53,8 +53,8 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https:github.com/m8ig/list"
+    "url": "git+https:github.com/m8ig/list-angular"
   },
   "author": "m8ig <mike@sitio.ru>",
-  "homepage": "https://m8ig.github.io/list/"
+  "homepage": "https://m8ig.github.io/list-angular/"
 }
