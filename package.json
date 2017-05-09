@@ -1,0 +1,60 @@
+{
+  "name": "scal",
+  "private": true,
+  "version": "0.0.1",
+  "description": "",
+  "main": "docs/index.html",
+  "license": "Closed license",
+  "dependencies": {
+    "angular": "^1.6.4",
+    "angular-animate": "^1.6.4",
+    "angular-mocks": "^1.6.4",
+    "angular-resource": "^1.6.4",
+    "angular-route": "^1.6.4",
+    "angular-strap": "^2.3.12",
+    "bootstrap-sass": "^3.3.7",
+    "jquery": "^3.2.1"
+  },
+  "devDependencies": {
+    "angularjs-template-loader": "^0.1.1",
+    "clean-webpack-plugin": "^0.1.16",
+    "css-loader": "^0.28.0",
+    "eslint": "^3.19.0",
+    "eslint-config-airbnb-base": "^11.1.3",
+    "eslint-plugin-import": "^2.2.0",
+    "extract-text-webpack-plugin": "^2.1.0",
+    "html-webpack-plugin": "^2.28.0",
+    "jasmine": "^2.6.0",
+    "jasmine-core": "^2.6.1",
+    "karma": "^1.6.0",
+    "karma-chrome-launcher": "^2.1.0",
+    "karma-jasmine": "^1.1.0",
+    "node-sass": "^4.5.2",
+    "protractor": "^5.1.1",
+    "raw-loader": "^0.5.1",
+    "sass-loader": "^6.0.3",
+    "webpack": "^2.3.3"
+  },
+  "scripts": {
+    "build": "webpack -p",
+
+    "prestart": "npm install",
+    "start": "webpack-dev-server",
+
+    "pretest": "npm install",
+    "test": "karma start karma.conf.js",
+    "test-single-run": "karma start karma.conf.js --single-run",
+
+    "preupdate-webdriver": "npm install",
+    "update-webdriver": "webdriver-manager update",
+
+    "preprotractor": "npm run update-webdriver",
+    "protractor": "protractor e2e-tests/protractor.conf.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https:github.com/m8ig/list"
+  },
+  "author": "m8ig <mike@sitio.ru>",
+  "homepage": "https://m8ig.github.io/list/"
+}
