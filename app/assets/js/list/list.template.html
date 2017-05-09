@@ -1,0 +1,15 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-sm-3">
+      Search: <input class="form-control" ng-model="$ctrl.query" />
+    </div>
+    <div class="col-sm-9">
+      <ul class="phones">
+        <li ng-repeat="phone in $ctrl.phones | filter: $ctrl.query">
+          <span>{{phone.name}}</span>
+          <p>{{phone.snippet}}</p>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
