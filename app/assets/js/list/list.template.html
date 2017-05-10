@@ -23,12 +23,14 @@
         </tr>
         <tr>
           <td ng-repeat="forecast in $ctrl.forecasts | filter: $ctrl.query | orderBy: $ctrl.orderProp">
-            <img src="{{forecast.day.condition.icon}}"><br>
-            {{forecast.day.condition.text}}
-            <h4>
-              {{(forecast.day.avgtemp_f > 0) ? '+' : ''}}
-              {{forecast.day.avgtemp_f}}
-            </h4>
+            <a href="#/days/{{forecast.date_epoch}}">
+              <img ng-src="{{forecast.day.condition.icon}}" alt="{{forecast.day.condition.text}}"><br>
+              {{forecast.day.condition.text}}
+              <h4>
+                {{(forecast.day.avgtemp_f > 0) ? '+' : ''}}
+                {{forecast.day.avgtemp_f}}
+              </h4>
+            </a>
           </td>
         </tr>
       </table>
