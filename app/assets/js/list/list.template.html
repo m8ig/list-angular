@@ -1,6 +1,6 @@
 <div class="container-fluid">
   <div class="row">
-    <div class="col-sm-3">
+    <div class="col-xs-12">
       <div class="form-group">
         Search: <input class="form-control" ng-model="$ctrl.query" />
       </div>
@@ -12,13 +12,26 @@
         </select>
       </div>
     </div>
-    <div class="col-sm-9">
-      <ul class="phones">
-        <li ng-repeat="phone in $ctrl.phones | filter: $ctrl.query | orderBy: $ctrl.orderProp">
-          <span>{{phone.name}}</span>
-          <p>{{phone.snippet}}</p>
-        </li>
-      </ul>
+  </div>
+  <div class="row">
+    <div class="col-xs-12">
+      <table class="table table-condensed">
+        <tr>
+          <th ng-repeat="forecast in $ctrl.forecasts | filter: $ctrl.query | orderBy: $ctrl.orderProp">
+            {{forecast.date}}
+          </th>
+        </tr>
+        <tr>
+          <td ng-repeat="forecast in $ctrl.forecasts | filter: $ctrl.query | orderBy: $ctrl.orderProp">
+            <img src="{{forecast.day.condition.icon}}"><br>
+            {{forecast.day.condition.text}}
+            <h4>
+              {{(forecast.day.avgtemp_f > 0) ? '+' : ''}}
+              {{forecast.day.avgtemp_f}}
+            </h4>
+          </td>
+        </tr>
+      </table>
     </div>
   </div>
 </div>
