@@ -27,7 +27,7 @@ describe('list', () => {
       ctrl = $componentController('list');
     }));
 
-    it('should create a `phones` property with 2 phones fetched with `$http`', () => {
+    it('should create a `forecasts` property with 2 days fetched with `$http`', () => {
       expect(ctrl.forecasts).toBeUndefined();
 
       $httpBackend.flush();

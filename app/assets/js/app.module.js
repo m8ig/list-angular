@@ -1,4 +1,6 @@
-// Define the `listApp` module
-angular.module('listApp', [
+// Define the `weatherApp` module
+angular.module('weatherApp', [
+  'ngRoute',
   'list',
+  'detail',
 ]);

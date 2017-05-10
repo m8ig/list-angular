@@ -10,8 +10,8 @@ module.exports = (config) => {
       '../node_modules/angular-resource/angular-resource.js',
       '../node_modules/angular-mocks/angular-mocks.js',
       '../node_modules/angular-route/angular-route.js',
-      'assets/js/*!(.module|.spec|.component).js',
       'assets/js/**/*.module.js',
+      'assets/js/*!(.module|.spec|.component).js',
       'assets/js/**/*.component.js',
       'assets/js/**/*.spec.js'
     ],

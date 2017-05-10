@@ -23,7 +23,7 @@
         </tr>
         <tr>
           <td ng-repeat="forecast in $ctrl.forecasts | filter: $ctrl.query | orderBy: $ctrl.orderProp">
-            <a href="#/days/{{forecast.date_epoch}}">
+            <a href="#!/days/{{forecast.date_epoch}}">
               <img ng-src="{{forecast.day.condition.icon}}" alt="{{forecast.day.condition.text}}"><br>
               {{forecast.day.condition.text}}
               <h4>

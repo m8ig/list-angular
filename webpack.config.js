@@ -75,7 +75,7 @@ module.exports = {
     new HtmlWebpackPlugin({
       filename: './index.html',
       template: './app/template.ejs',
-      title: 'Scal',
+      title: 'Weather App',
     }),
     new ExtractTextPlugin('./css/app.css'),
     new CleanWebpackPlugin(['docs'], {
