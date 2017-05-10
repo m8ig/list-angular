@@ -6,8 +6,6 @@ module.exports = (config) => {
 
     files: [
       '../node_modules/angular/angular.js',
-      '../node_modules/angular-animate/angular-animate.js',
-      '../node_modules/angular-resource/angular-resource.js',
       '../node_modules/angular-mocks/angular-mocks.js',
       '../node_modules/angular-route/angular-route.js',
       'assets/js/**/*.module.js',

@@ -7,9 +7,7 @@
   "license": "Closed license",
   "dependencies": {
     "angular": "^1.6.4",
-    "angular-animate": "^1.6.4",
     "angular-mocks": "^1.6.4",
-    "angular-resource": "^1.6.4",
     "angular-route": "^1.6.4",
     "angular-strap": "^2.3.12",
     "bootstrap-sass": "^3.3.7"
