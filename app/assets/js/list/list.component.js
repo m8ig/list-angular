@@ -14,9 +14,7 @@ angular
         };
 
         function handleTransform(obj) {
-          const array = Object.keys(obj).map((key) => {
-            return `${encodeURIComponent(key)}=${encodeURIComponent(obj[key])}`;
-          });
+          const array = Object.keys(obj).map((key) => `${encodeURIComponent(key)}=${encodeURIComponent(obj[key])}`);
           return array.join('&');
         }
 
