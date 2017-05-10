@@ -7,12 +7,12 @@ angular
       $locationProvider.hashPrefix('!');
 
       $routeProvider
-        .when('/days', {
+        .when('/', {
           template: '<list></list>',
         })
-        .when('/days/:dayId', {
+        .when('/:dayId', {
           template: '<detail></detail>',
         })
-        .otherwise('/days');
+        .otherwise('/');
     },
   ]);
