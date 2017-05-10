@@ -1,34 +1,40 @@
 <div class="container-fluid">
   <div class="row">
     <div class="col-xs-12">
-      <div class="form-group">
-        Search: <input class="form-control" ng-model="$ctrl.query" />
-      </div>
-      <div class="form-group">
-        Sort by:
-        <select ng-model="$ctrl.orderProp">
-          <option value="name">Alphabetical</option>
-          <option value="age">Newest</option>
-        </select>
-      </div>
+      <h1>Forecast App</h1><br>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-12">
+      <form>
+        <div class="input-group input-group-lg">
+          <input type="text" class="form-control" ng-model="$ctrl.location" placeholder="Location" />
+          <span class="input-group-btn">
+            <button class="btn btn-primary" type="submit" ng-click="$ctrl.getForecast($ctrl.location)">
+              Search
+            </button>
+          </span>
+        </div>
+      </form>
+      <br><br>
     </div>
   </div>
   <div class="row">
     <div class="col-xs-12">
       <table class="table table-condensed">
         <tr>
-          <th ng-repeat="forecast in $ctrl.forecasts | filter: $ctrl.query | orderBy: $ctrl.orderProp">
+          <th ng-repeat="forecast in $ctrl.forecasts | filter: $ctrl.query">
             {{forecast.date}}
           </th>
         </tr>
         <tr>
-          <td ng-repeat="forecast in $ctrl.forecasts | filter: $ctrl.query | orderBy: $ctrl.orderProp">
+          <td ng-repeat="forecast in $ctrl.forecasts | filter: $ctrl.query">
             <a href="#!/{{forecast.date_epoch}}">
               <img ng-src="{{forecast.day.condition.icon}}" alt="{{forecast.day.condition.text}}"><br>
               {{forecast.day.condition.text}}
               <h4>
-                {{(forecast.day.avgtemp_f > 0) ? '+' : ''}}
-                {{forecast.day.avgtemp_f}}
+                {{(forecast.day.avgtemp_c > 0) ? '+' : ''}}
+                {{forecast.day.avgtemp_c}}
               </h4>
             </a>
           </td>

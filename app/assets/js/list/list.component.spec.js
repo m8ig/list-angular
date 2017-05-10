@@ -41,9 +41,5 @@ describe('list', () => {
         },
       ]);
     });
-
-    it('should set a default value for the `orderProp` property', () => {
-      expect(ctrl.orderProp).toBe('age');
-    });
   });
 });
