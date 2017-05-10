@@ -1,7 +1,29 @@
 <div class="container-fluid">
   <div class="row">
     <div class="col-xs-12">
-      TBD: Detail view for <span>{{$ctrl.dayId}}</span>
+      <h1>Forecast for {{$ctrl.forecast.date}} in {{$ctrl.location}}</h1><br>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-12">
+      <table class="table table-condensed">
+        <tr>
+          <th ng-repeat="hour in $ctrl.forecast.hour">
+            {{$index}}
+          </th>
+        </tr>
+        <tr>
+          <td ng-repeat="hour in $ctrl.forecast.hour">
+            <img ng-src="{{hour.condition.icon}}" alt="{{hour.condition.text}}"><br>
+            {{hour.condition.text}}
+            <h4>
+              {{(hour.temp_c > 0) ? '+' : ''}}
+              {{hour.temp_c}}
+            </h4>
+          </td>
+        </tr>
+      </table>
     </div>
   </div>
 </div>
+
