@@ -13,13 +13,18 @@ module.exports = {
 
   module: {
     rules: [
-
       {
         test: /\.js$/,
         include: [
           path.resolve(__dirname, './app/assets/js'),
         ],
         use: [
+          {
+            loader: 'babel-loader',
+            options: {
+              presets: ['es2015'],
+            },
+          },
           {
             loader: 'angularjs-template-loader',
             options: {
