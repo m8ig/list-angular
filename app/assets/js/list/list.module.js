@@ -1,2 +1,4 @@
 // Define the `list` module
-angular.module('list', []);
+angular.module('list', [
+  'core.forecasts',
+]);
