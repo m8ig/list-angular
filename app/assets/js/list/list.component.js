@@ -5,20 +5,19 @@ angular
     controller: [
       'Forecasts',
       function ListController(Forecasts) {
-        this.location = 'Paris';
+        this.location = Forecasts.getLocation();
 
-        this.getForecast = (location = this.location) => {
-          Forecasts.get(
-            {
-              q: location,
-            },
-            (response) => {
-              this.forecasts = response.forecast.forecastday;
-            },
-          );
+        this.handleForecast = (location) => {
+          if (location !== undefined) {
+            Forecasts.setLocation(location);
+          }
+
+          Forecasts.getData((response) => {
+            this.forecasts = response.forecast.forecastday;
+          });
         };
 
-        this.getForecast();
+        this.handleForecast();
       },
     ],
     templateUrl: './list/list.template.html',

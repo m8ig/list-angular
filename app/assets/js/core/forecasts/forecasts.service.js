@@ -1,12 +1,35 @@
 angular
   .module('core.forecasts')
   .factory('Forecasts', [
-    '$resource',
-    $resource => $resource(
-      'https://api.apixu.com/v1/forecast.json',
-      {
-        key: '70d1b60c16444f8e9c8112926171005',
-        days: '10',
-      },
-    ),
+    'XHR',
+    (XHR) => {
+      let location = 'Paris';
+      let request = {};
+
+      return {
+        getData: (callback) => {
+          if (request.forecast) {
+            return callback(request);
+          }
+
+          request = XHR.get(
+            {
+              q: location,
+            },
+            response => callback(response),
+          );
+
+          return request;
+        },
+
+        getLocation: () => location,
+
+        setLocation: (value) => {
+          if (value && location !== value) {
+            location = value;
+            request = {};
+          }
+        },
+      };
+    },
   ]);

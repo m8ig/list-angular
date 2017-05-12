@@ -3,22 +3,17 @@ angular
   .module('detail')
   .component('detail', {
     controller: [
-      'Forecasts',
       '$routeParams',
-      function DetailController(Forecasts, $routeParams) {
+      'Forecasts',
+      function DetailController($routeParams, Forecasts) {
         this.dayId = $routeParams.dayId;
-        this.location = 'Paris';
+        this.location = Forecasts.getLocation();
 
-        Forecasts.get(
-          {
-            q: this.location,
-            days: '1',
-            unixdt: this.dayId,
-          },
-          (response) => {
-            this.forecast = response.forecast.forecastday[0];
-          },
-        );
+        Forecasts.getData((response) => {
+          this.forecast = response.forecast.forecastday.filter((item) => {
+            return item.date_epoch.toString() === this.dayId.toString();
+          })[0];
+        });
       },
     ],
     templateUrl: './detail/detail.template.html',
